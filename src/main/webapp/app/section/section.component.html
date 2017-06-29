@@ -1,0 +1,22 @@
+
+<h1>Section {{section.id}}</h1>
+<h2>Semester: {{section.semester}}</h2>
+<h2>Students</h2>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                StudentID
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+        </tr>
+    </tbody>
+</table>

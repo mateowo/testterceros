@@ -1,0 +1,12 @@
+<div>
+    <h1>{{course.name}}</h1>
+    <h2>Credits: {{course.credits}}</h2>
+    
+    <h2>Sections</h2>
+    <ul *ngFor="let section of sections">
+        <li>
+            <a [routerLink]="['/section/view', section.id]"> {{section.id}} - {{section.semester}}</a>
+        </li>
+    </ul>
+    
+</div>

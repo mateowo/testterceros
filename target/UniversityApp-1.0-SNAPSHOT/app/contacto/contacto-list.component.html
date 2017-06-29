@@ -1,0 +1,45 @@
+<div class="margen">
+<contacto-form (notify)="onNotify($event)" [contacto]="currentContact" [tercero]="idTercero"></contacto-form>
+<hr/>
+<table class="table-details">
+    <thead>
+        <tr>
+            <th>NOMBRE</th>
+            <th>RELACIÓN</th>
+            <th>TELÉFONO</th>
+            <th>OPCIÓN</th>
+        </tr>
+    </thead>
+    <tbody>
+         <tr *ngFor="let contacto of contactos">
+            <td>{{contacto.nombrecontacto}}</td>
+            <td>{{contacto.telefonocontacto}}</td>
+            <td>{{contacto.relacion}}</td>
+            <td class="constante">
+       
+                
+                <input type="button" class="btn btn-default" value="Editar"(click)="editContact(contacto)" /> 
+                <input type="button" class="btn btn-default" value="Eliminar" (click)="removeContact(contacto.idcontacto)" />
+                   
+            </td>
+        </tr>
+    </tbody>
+   
+</table>
+
+<br>
+<br>
+        <div class="col-md-4" align="center"> 
+        <br><br>
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/terceros/encabezado']">NUEVO</button>
+        </div> 
+        <div class="col-md-4" align="center" > 
+            <br><br>
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/PANTALLA_1/propiedades', idTercero]">PRINCIPAL</button>
+        </div> 
+        <div class="col-md-4" align="center"> 
+            <br><br>
+        <button type="button" class="btn btn-info btn-lg" onclick="alert('world!')" >DIRECCIONES</button>
+        </div> 
+        
+</div>

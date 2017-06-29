@@ -1,0 +1,109 @@
+<div class="margen">
+    <form>
+    <div class="col-md-4">  
+        <br>
+        <br>
+
+        <label for="tipo">Propiedades Activas:</label>
+           <select multiple class="form-control" data-live-search="true" id="dropdown" name="tipoId" [(ngModel)]="selectedValue">  
+           <option *ngFor="let i of tipoterceros" [ngValue]="i">{{i.tipotercero}}</option>
+        </select>
+        <div align="center">
+            <button class="btn btn-default" (click)="cambiar()">Click</button>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <br>
+        <br>
+        <br>
+
+        <div class="form-group">
+            <textarea  class="form-control" rows="5" id="mytext" disabled="" name="algo" [(ngModel)]="cadena"></textarea>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div align="center"> <label for="imagencarga" >Imagen / Logotipo:</label >
+            <input  type="file" (change)="onFileChange($event)"  />
+             <div *ngIf="hayImagen">
+
+
+            <img [src]="logo" width="304" height="236"> 
+        </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div align="center" >
+            <button  type="submit"  class="btn btn-default">Eliminar Imagen</button> 
+        </div>
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-4">
+        <br>
+        <br>
+
+        <label for="vendedor">Vendedor:</label>
+        <select class="form-control" data-live-search="true" id="enca" name="vendedor" [(ngModel)]="selectedValueVendedor">  
+            <option *ngFor="let i of vendedores" [ngValue]="i">{{i.idtercero}} {{i.primernombre}} {{i.primeraprellido}}</option>
+        </select>
+
+
+        <label for="clafi1">Clasificación (Uno):</label>
+        <select class="form-control" data-live-search="true" id="enca" name="tipoClas1" [(ngModel)]="selectedValueClasUno">  
+            <option *ngFor="let i of clasificacionUno" [ngValue]="i">{{i.clasificacion}}</option>
+        </select>
+
+
+        <label for="clafi2">Clasificación (Dos):</label>
+        <select class="form-control" data-live-search="true" id="enca" name="tipoClas2" [(ngModel)]="selectedValueClasDos">  
+            <option *ngFor="let i of clasificacionDos" [ngValue]="i">{{i.clasificacion}}</option>
+        </select>    
+
+        <label for="clafi3">Clasificación (Tres):</label>
+        <select class="form-control" data-live-search="true" id="enca" name="tipoClas3" [(ngModel)]="selectedValueClasTres">  
+            <option *ngFor="let i of clasificacionTres" [ngValue]="i">{{i.clasificacion}}</option>
+        </select>
+        
+        <br>
+        <br>
+        <br>
+
+
+    </div>
+
+        <div class="margen2">
+       <button type="button" class="btn btn-default"(click)="upload()"> Upload</button>
+       </div>
+        
+      
+    </form>
+  
+       <br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+        <div class="col-md-4" align="center" > 
+         <br><br>
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/terceros/encabezado']">NUEVO</button>
+        </div> 
+        <div class="col-md-4" align="center"> 
+          <br><br>
+        <button type="button" class="btn btn-info btn-lg" onclick="alert('world!')" >DIRECCIONES</button>
+        </div> 
+        <div class="col-md-4" align="center"> 
+        <br><br>
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/contacto/list',idTercero]" >CONTACTOS</button>
+        </div> 
+       
+</div>   
+

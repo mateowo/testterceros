@@ -1,0 +1,12 @@
+<h1>Students</h1>
+<form (ngSubmit)="saveStudent()">
+    <label for="txtFirstName">Name</label><input type="text" id="txtFirstName" name="firstName" [(ngModel)]="student.firstName">
+    <label for="txtLastName">Student ID</label><input type="text" id="txtLastName" name="lastName" [(ngModel)]="student.lastName">
+    <button type="submit">Save</button>
+</form>    
+<div>
+    {{errorMessage}}
+</div>
+
+
+

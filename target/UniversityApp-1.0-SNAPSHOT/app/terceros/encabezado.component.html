@@ -1,0 +1,114 @@
+<div class="margen">
+<form (ngSubmit)="save()">
+<div class="row"> 
+<div class="col-md-6">
+    
+    <div class="col-md-1">
+        </div>
+    <div class="col-md-10">
+    
+    
+    <label for="tipo">Tipo:</label>
+       <select class="form-control" data-live-search="true" id="enca" name="tipoId" [(ngModel)]="tipo" (ngModelChange)="cambiarTipo()" >  
+        <option *ngFor="let i of identificaciones" [ngValue]="i">{{i.tipo}}</option>
+    </select>
+    
+    <label for="numero">Numero:</label>
+    <input type="number" class="form-control" id="enca" placeholder="numero" name="numero" required [(ngModel)]="terc.identificacion" >
+     
+    <label for="DV">DV</label>
+    <input type="number" class="form-control" id="enca" placeholder="" name="DV">
+    
+    <label for="ciudad">Ciudad:</label>
+    <select class="form-control" data-live-search="true" id="enca" name="ciudad" [(ngModel)]="ciudad">  
+        <option *ngFor="let c of ciudades" [ngValue]="c">{{c.ciudad}}</option>
+    </select>
+    
+    <label>Activo:<input type="checkbox" name="activo" [(ngModel)]="activo"> </label><br>
+    
+    <label for="comentario">Observación: </label>
+    <input type="text" class="form-control" id="enca" placeholder="comentario" name="comentario" [(ngModel)]="terc.observacion">
+    </div>
+    <div class="col-md-1">
+      </div>
+</div>
+    
+
+<div class="col-md-6">
+    <div class="col-md-1">
+        </div>
+    <div class="col-md-10">
+        
+    <div *ngIf="esUser">
+    <label for="prinom">1er nombre:</label>
+     </div>
+    
+     <div *ngIf="!esUser">
+         <br>
+         <br>
+
+         
+         
+    <label for="prinom">Razón social:</label>
+     </div>
+    
+    <input type="text" class="form-control" id="enca" placeholder="" name="prinom" required [(ngModel)]="terc.primernombre" >
+  <div *ngIf="esUser">
+    <label for="segnom">2do Nombre:</label>
+    <input type="text" class="form-control" id="enca" placeholder="" name="segnom" [(ngModel)]="terc.segundonombre">
+    
+     <label for="1erape">1er apellido:</label>
+    <input type="text" class="form-control" id="enca" placeholder="" name="1erape" [(ngModel)]="terc.primeraprellido">
+    
+    <label for="2doape">2do apellido:</label>
+    <input type="text" class="form-control" id="enca" placeholder="" name="2doape" [(ngModel)]="terc.segundoapellido">
+   
+    </div>
+    <label>Cupo crédito: <input type="checkbox" name="activo" [(ngModel)]="cupo" > </label>
+    <div *ngIf="cupo">
+    <input type="number" class="form-control" id="enca" placeholder="" name="cupo" [(ngModel)]="terc.cupo">
+    </div>
+    <div *ngIf="!cupo">
+        <br>
+    </div>
+    <label for="plazo">Plazo (días)</label>
+    <input type="number" class="form-control" id="enca" placeholder="numero" name="plazo" [(ngModel)]="terc.plazo">
+    
+    
+    <label for="fecha">Fecha aniversario:</label>
+    <input type="date" class="form-control" id="enca" placeholder="" name="fecha" [(ngModel)]="terc.fechaCreacion">
+    
+  </div>
+    
+    <div class="col-md-1">
+        </div>
+</div>
+    
+</div>
+    <br><div align="center">
+    <button type="submit" class="btn btn-default btn-lg">Guardar</button>
+    </div>
+</form>
+<br>
+<br>
+
+        <div class="col-md-4" align="center" > 
+        <br><br>
+        <div *ngIf="habilitar">
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/PANTALLA_1/propiedades', terc.idtercero]">PRINCIPAL</button>
+         </div>  </div> 
+        <div class="col-md-4" align="center"> 
+            <br><br>
+            <div *ngIf="habilitar">
+        <button type="button" class="btn btn-info btn-lg" onclick="alert('world!')" >DIRECCIONES</button>
+        </div> </div> 
+        <div class="col-md-4" align="center"> 
+            
+        <br><br>
+        <div *ngIf="habilitar">
+        <button type="button" class="btn btn-info btn-lg" [routerLink]="['/contacto/list', terc.idtercero]" >CONTACTOS</button>
+        </div> </div> 
+
+</div>
+
+{{message}}
